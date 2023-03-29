@@ -5,6 +5,7 @@
     "scripts": {
         "dev": "vite",
         "dev:mock": "vite --mode mock",
+        "prettier": "prettier .  --write",
         "build": "run-p type-check build-only",
         "preview": "vite preview --port 4173",
         "test:unit": "vitest --environment jsdom",
@@ -15,6 +16,7 @@
         "lint": "eslint  --ext .vue,.js,.jsx,.ts,.tsx --fix src --ignore-path .eslintignore"
     },
     "dependencies": {
+        "@turf/turf": "^6.5.0",
         "@wei_design/web-vue": "^1.0.0",
         "axios": "^0.27.2",
         "cesium": "^1.84.0",
