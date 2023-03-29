@@ -84,6 +84,7 @@ export const graphOptions = (check = false) => {
             },
             // 拽出新的边
             createEdge() {
+                console.log(7777777)
                 return new Shape.Edge({
                     markup: [
                         {

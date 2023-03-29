@@ -95,7 +95,9 @@ export default {
                 const data = node.getData()
                 console.log(data)
             })
-
+            graph.on('edge:mouseup', () => {
+                console.log(123123123213)
+            })
             // 双击动态添加链接桩
             graph.on('node:dblclick', e => {
                 const { e: event, node } = e
@@ -147,6 +149,7 @@ export default {
                             }
                         }
                     ])
+                    console.log(123123, cell.store.data)
                 }
             })
             graph.on('cell:mouseleave', ({ cell }) => {
@@ -346,25 +349,26 @@ export default {
          */
         handleSave() {
             const res = graph.toJSON()
+            console.log(res, 66666)
             this.rawSource = res
             console.log(JSON.stringify(res))
-            graph.toPNG(
-                dataUri => {
-                    // 下载
-                    DataUri.downloadDataUri(dataUri, `${new Date().toLocaleString()}.chart.png`)
-                },
-                {
-                    // 导出的图片参数
-                    width: 1920,
-                    height: 1080,
-                    padding: {
-                        top: 25,
-                        right: 25,
-                        bottom: 25,
-                        left: 25
-                    }
-                }
-            )
+            // graph.toPNG(
+            //     dataUri => {
+            //         // 下载
+            //         DataUri.downloadDataUri(dataUri, `${new Date().toLocaleString()}.chart.png`)
+            //     },
+            //     {
+            //         // 导出的图片参数
+            //         width: 1920,
+            //         height: 1080,
+            //         padding: {
+            //             top: 25,
+            //             right: 25,
+            //             bottom: 25,
+            //             left: 25
+            //         }
+            //     }
+            // )
             this.$message.success('保存成功')
         }
     }
